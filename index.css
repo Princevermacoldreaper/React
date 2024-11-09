@@ -4,3 +4,33 @@
   #child {
     color: blue;
   }
+  .header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black ;
+  }
+  .logo{
+    width: 100px;
+    height: 100px;
+  }
+  .nav-items >ul{
+  display: flex;
+  list-style-type: none;
+  
+  }
+  .nav-items >ul>li{
+    font-size: 24px;
+    padding: 10px;
+    margin:12px ;
+  }
+  .nav-items{
+    padding-right: 20px;
+  }
+  .res-card{
+    width:150px;
+    height: 225px;
+    border: 1px solid black;
+  }
+  .search{
+    padding: 10px;
+  }
