@@ -42,3 +42,11 @@
     display: flex;
     flex-wrap: wrap;
   }
+ .filter-btn{
+  padding: 5px;
+  margin: 10px;
+ }
+ .filter-btn:hover{
+  cursor: pointer;
+  border: 1px solid black;
+}
