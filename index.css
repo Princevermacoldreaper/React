@@ -50,3 +50,21 @@
   cursor: pointer;
   border: 1px solid black;
 }
+.shimmer-card{
+  margin: 20px;
+  width: 160px;
+  height: 210px;
+  background-color: #f0f0f0;
+}
+.shimmer-coantainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+.login{
+  padding: 0 20px;
+  cursor: pointer;
+  }
+  .search-box{
+    padding: 1px;
+  margin: 5px;
+  }
