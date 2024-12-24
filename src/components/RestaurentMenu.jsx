@@ -1,26 +1,31 @@
 
 import { useEffect ,useState} from "react";
+import { useParams } from "react-router";
 import Shimmer from "./Shimmer";
+import { Menu_api,Menu_api2 } from "../utils/constants";
 const RestaurantMenu = () => {
 const[resInfo,setResInfo]=useState(null);
+      const {resId}=useParams();
+      //console.log(resId);
     useEffect(() => {
         
         fetchMenu();
     }, []);
     const fetchMenu = async () => {
         try {
-            //data.data.cards[2].card.card.info
-            const response = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.582574171253334&lng=77.40395203446887&restaurantId=624070&catalog_qa=undefined&submitAction=ENTER");
+            //
+            const response = await fetch(Menu_api+resId+Menu_api2);
             const data = await response.json();
-            console.log(data);
+           // console.log(data.data.cards[2].card.card.info);
             setResInfo(data)
         } catch (error) {
             console.error("Error fetching menu:", error);
         }
     };
- //const{name,cuisines,costForTwoMessage,avgRatingString}=resInfo.data.cards[2].card.card.info;
- const cuisines=resInfo.data.cards[2].card.card.info;
-    return resInfo==null?<Shimmer/>:(
+    if(resInfo==null) return <Shimmer/>;
+ const{name,cuisines,costForTwoMessage,avgRatingString}=resInfo.data.cards[2].card.card.info;
+  
+    return (
         <div className="menu">
             <h1>{resInfo.data.cards[2].card.card.info.name}</h1>
             <h2>{cuisines.join(",")}</h2>
