@@ -4,7 +4,7 @@ const About =()=>{
     return <div>
         <h1>about</h1>
         <h2>this ia namaste react web series</h2>
-        <User name={"akshay"}/>
+        {/* <User name={"akshay"}/> */}
         <UserClass name={"prince"} location={"dubagga charak ke peeche"}/>
     </div>
 }

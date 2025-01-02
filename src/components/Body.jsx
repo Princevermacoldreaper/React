@@ -2,6 +2,7 @@ import RestaurentCard from "./RestaurentCard";
 import { useState ,useEffect} from "react";
 import { Link } from "react-router";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 let data;
 const Body = () => {
   const [listOfRestaurents, setListOfRestaurents] = useState([]);
@@ -15,6 +16,7 @@ const Body = () => {
     }
     init()  
   },[]);
+  
 
   const fetchData=async()=>{
     const API_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.582574171253334&lng=77.40395203446887&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
@@ -27,9 +29,18 @@ const Body = () => {
  
   //console.log("TEST", listOfRestaurents)
  // console.log(listOfRestaurents.filter((k)=>k.info.name==searchText))
-   
+ const onlineStatus=useOnlineStatus();
+ if (onlineStatus == false) {
+  //console.log("offline");
+  return (
+    <h1>
+      You are Offline please connect to Internet!
+    </h1>
+  );
+}
+
   return ( listOfRestaurents.length==0?<Shimmer/>:
-    <div className="body">  
+    <div className="body ">  
       <div className="filter">
       <input type="text" className="search-box" value={searchText} onChange={(e)=>{setsearchText(e.target.value)}}/>
       <button onClick={()=>{
