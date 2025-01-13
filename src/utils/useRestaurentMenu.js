@@ -18,5 +18,5 @@ const useRestaurentMenu=(resId)=>{
         }
     };
  return resInfo;
-}
+};
 export default useRestaurentMenu;

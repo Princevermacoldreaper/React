@@ -20,7 +20,7 @@ class UserClass extends React.Component{
     console.log(json);
     }
     componentDidUpdate(){
-        console.log("did update called");
+        //console.log("did update called");
     } 
     render(){
         return (<div className="user-card">
